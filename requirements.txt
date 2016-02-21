@@ -1,5 +1,2 @@
-numpy
 pandas
 pytest
-matplotlib
-seaborn 
