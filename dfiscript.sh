@@ -18,6 +18,16 @@ else
 
 fi 
 
+if [ -z "${@:2}" ]
+then
+	echo "No fdfi"
+	exit 
+else
+	echo "fdfi: ${@:2}"
+	exit 
+
+fi
+
 for f in *_mwcovarmat.dat
 do
     echo $f;
@@ -27,3 +37,6 @@ do
     mv -v ${pdbid}-dfianalysis.csv ${prefix}-dfianalysis.csv 
 
 done
+
+~/dfi/dfi.py --pdb ${pdbid}.pdb 
+mv -v ${pdbid}-dfianalysis.csv ${pdbid}_ENM-dfianalysis.csv  
