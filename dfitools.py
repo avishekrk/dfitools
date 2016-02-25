@@ -42,7 +42,7 @@ def getavg(df_windows,pdbid):
     df_windows = glob_df(pdbid,'pctdfi')
     cols = [col for col in df_windows.columns if not(col == "ENM")]
     df_windows['md_avg'] = df_windows[cols].mean(axis=1)    
-    df_windows['md_std'] = df_windows[cols].var(axis=1).map(sqrt)
+    df_windows['md_std'] = df_windows[cols].var(axis=1).map(np.sqrt)
     return df_windows 
 
 def calc_avg(pdbid,parm):
