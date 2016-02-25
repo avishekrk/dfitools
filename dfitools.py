@@ -49,6 +49,6 @@ def calc_avg(pdbid,parm):
     "grab all dataframes avg them and output the outfile"
     df_windows = glob_df(pdbid,parm,chainA=False)
     df_windows = getavg(df_windows,pdbid)
-    outfilename = '_'.join([pdbid,parm,'avg-dfianalysis.csv'])
+    outfile = '_'.join([pdbid,parm,'avg-dfianalysis.csv'])
     df_windows.to_csv(outfile)
     print "Wrote out to %s"%(outfilename)
