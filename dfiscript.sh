@@ -18,25 +18,20 @@ else
 
 fi 
 
-if [ -z "${@:2}" ]
-then
-	echo "No fdfi"
-	exit 
-else
-	echo "fdfi: ${@:2}"
-	exit 
+fdfi="${@:2}"
+echo $fdfi 
 
-fi
+
 
 for f in *_mwcovarmat.dat
 do
     echo $f;
     prefix=$(echo $f | sed "s/_mwcovarmat.dat//g")
     echo $prefix
-    ~/dfi/dfi.py --pdb ${pdbid}.pdb --hess $f
+    ~/dfi/dfi.py --pdb ${pdbid}.pdb --hess $f --fdfi ${fdfi}
     mv -v ${pdbid}-dfianalysis.csv ${prefix}-dfianalysis.csv 
 
 done
 
-~/dfi/dfi.py --pdb ${pdbid}.pdb 
+~/dfi/dfi.py --pdb ${pdbid}.pdb --fdfi ${fdfi}
 mv -v ${pdbid}-dfianalysis.csv ${pdbid}_ENM-dfianalysis.csv  
