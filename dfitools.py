@@ -51,4 +51,4 @@ def calc_avg(pdbid,parm):
     df_windows = getavg(df_windows,pdbid)
     outfile = '_'.join([pdbid,parm,'avg-dfianalysis.csv'])
     df_windows.to_csv(outfile)
-    print "Wrote out to %s"%(outfilename)
+    print "Wrote out to %s"%(outfile)
