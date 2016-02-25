@@ -8,6 +8,9 @@ Description
 Suite of tools for DFI Analysis
 
 """
+import pandas as pd 
+import glob 
+import numpy as np 
 
 def make_fasta(name,df_dfi):
     """
