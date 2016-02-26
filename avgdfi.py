@@ -6,7 +6,9 @@ Script using DFI tools to calculate average dataframe.
 e.g. ./avgdfi.py 1fsa pctdfi pctfdfi 
 """
 
-if __name__ == __main__ and len(sys.argv) > 2:
+import sys 
+
+if __name__ == "__main__" and len(sys.argv) > 2:
 	#run code
 	import dfitools as dfit
 	pdbid = sys.argv[1]
