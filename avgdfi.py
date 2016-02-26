@@ -13,6 +13,7 @@ if __name__ == "__main__" and len(sys.argv) > 2:
 	import dfitools as dfit
 	pdbid = sys.argv[1]
 	for parm in sys.argv[2:]:
+		print parm 
 		dfit.calc_avg(pdbid,parm)
 else:
 	print __doc__

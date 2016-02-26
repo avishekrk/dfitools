@@ -39,7 +39,7 @@ def glob_df(pdbid,parm,chainA=False):
 
 def getavg(df_windows,pdbid):
     "get the average of all frames execpt ENM"
-    df_windows = glob_df(pdbid,'pctdfi')
+    df_windows = glob_df(pdbid,parm)
     cols = [col for col in df_windows.columns if not(col == "ENM")]
     df_windows['md_avg'] = df_windows[cols].mean(axis=1)    
     df_windows['md_std'] = df_windows[cols].var(axis=1).map(np.sqrt)
@@ -47,8 +47,8 @@ def getavg(df_windows,pdbid):
 
 def calc_avg(pdbid,parm):
     "grab all dataframes avg them and output the outfile"
-    df_windows = glob_df(pdbid,parm,chainA=False)
-    df_windows = getavg(df_windows,pdbid)
+    df_windows = glob_df(pdbid,parm,chainA=True)
+    df_windows = getavg(df_windows,pdbid,parm)
     outfile = '_'.join([pdbid,parm,'avg-dfianalysis.csv'])
     df_windows.to_csv(outfile)
     print "Wrote out to %s"%(outfile)
