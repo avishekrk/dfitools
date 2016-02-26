@@ -37,7 +37,7 @@ def glob_df(pdbid,parm,chainA=False):
         df_windows[win] = df_dfi.reset_index().set_index('ResI')[parm]
     return df_windows 
 
-def getavg(df_windows,pdbid):
+def getavg(df_windows,pdbid,parm):
     "get the average of all frames execpt ENM"
     df_windows = glob_df(pdbid,parm)
     cols = [col for col in df_windows.columns if not(col == "ENM")]
