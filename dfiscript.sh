@@ -5,7 +5,7 @@
 if [ -z "${1}" ]
 then
 	echo "No input file";
-	echo "./dfiscript pdbid fdfiresidues 
+	echo "./dfiscript pdbid fdfiresidues" 
 	exit;
 fi
 
