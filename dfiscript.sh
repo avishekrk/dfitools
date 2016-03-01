@@ -1,5 +1,6 @@
 #!/bin/bash
 #small script to run time series DFI 
+#e.g., ./dfiscript.sh pdbid fdfiresidues 
 
 if [ -z "${1}" ]
 then
