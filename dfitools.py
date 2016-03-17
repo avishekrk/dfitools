@@ -35,6 +35,7 @@ def glob_df(pdbid,parm,chainA=False):
     df_windows = pd.DataFrame()
     for win, df_dfi in data.groupby(level=0):
         df_windows[win] = df_dfi.reset_index().set_index('ResI')[parm]
+        df_windows['R'] = df_dfi.reset_index().set_index('ResI')['R']
     return df_windows 
 
 def getavg(df_windows,pdbid,parm):
