@@ -5,23 +5,30 @@ def aligndfi(pdbID):
     Align DFI. Given a pdbID this function
     will return a dataframe of an aligned sequence. 
     """
-    
+   
+    import dfi 
     import dfi.fastaseq
     import dfi.fasta_convert
     from clustalo import clustalo
-    
+    import numpy as np
+    import pandas as pd
+    remove_header = lambda x:''.join([s for s in x.split('\n') if not(s.startswith('>'))])    
     
     seqfasta=dfi.fastaseq.get_fastaseq(pdbID)
-    pdbseq=dfi.fasta_convert.fafsa_format(pdbID+'.pdb')
+    #pdbseq=dfi.fasta_convert.fafsa_format(pdbID+'.pdb')
+    pdbseq=dfi.fastaseq.get_fastaseq('P04062')
 
     pdb=remove_header(pdbseq)
     fasta=remove_header(seqfasta)
     input = {'pdbseq':pdb,'fastaseq':fasta}
     aligned = clustalo(input,seqtype=3)
-    pctdfi = df_dfi.loc[pdbID]['pctdfi']
-    chainIDs = df_dfi.loc[pdbID]['ChainID']
-    ResIDs = df_dfi.loc[pdbID]['ResI']
-    pctfdfi = df_dfi.loc[pdbID]['pctfdfi']
+ 
+    df_dfi = dfi.calc_dfi(pdbID+'.pdb')
+    df_dfi['pctfdfi'] = len(df_dfi)*np.nan
+    pctdfi = df_dfi['pctdfi']
+    chainIDs = df_dfi['ChainID']
+    ResIDs = df_dfi['ResI']
+    pctfdfi = df_dfi['pctfdfi']
     
     df_aligned = pd.DataFrame()
     df_aligned['fastaseq'] = [s for s in aligned['fastaseq']]
