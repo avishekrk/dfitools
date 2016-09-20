@@ -5,4 +5,6 @@ Suite of Tools for DFI Analysis
 Description
 -----------
 
-Kitchen-Sink container for useful tools. 
+Kitchen-Sink container for useful tools.
+
+ModelScript.ipynb: Script for modelling PDBs using PDBFixer 
