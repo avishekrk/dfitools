@@ -5,7 +5,7 @@ Suite of Tools for DFI Analysis
 Description
 -----------
 
-Kitchen-Sink container for useful tools.
+This purpose of the repo is to be a container of analyis scripts kept in a
+semi-polished manner. 
 
-ModelScript.ipynb: Script for modelling PDBs using PDBFixer 
-makemutations.py: Script for making a PyMOL script for mutations
+
